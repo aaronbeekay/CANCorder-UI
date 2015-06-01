@@ -22,14 +22,14 @@ if ( $requestedMessage = "batteries" ) {
 		fclose($fileHandle);
 		
 		$result = unpack("d*", $binaryResult);
-		$output[] = array(  "MessageName" 	=> $messageName
-							"MessageTime"	=> $result[1]
+		$output[] = array(  "MessageName" 	=> $messageName,
+							"MessageTime"	=> $result[1],
 							"MessageValue" 	=> $result[2] );
 		
-		echo json_encode($output);
 	}
+	echo json_encode($output);
 }
-
+/*
 // Outdated... DO NOT CALL
 if ( $requestedMessage = "powertrain" ) {
 
@@ -81,4 +81,5 @@ if ( $requestedMessage = "powertrain" ) {
 	echo json_encode($output);
 
 }
+*/
 ?>

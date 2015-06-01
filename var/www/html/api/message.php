@@ -5,14 +5,14 @@ $requestedMessage = $_GET['messageName'];
 //echo $requestedMessage;
 
 $filename = "/home/cancorder/data/" . $requestedMessage;
+
 $fileHandle = fopen($filename, "rb");
 $binaryResult = fread($fileHandle, filesize($filename));
-fclose($fileHandle);
 		
 $result = unpack("d*", $binaryResult);
 
 $reply = array( 'messageName'  => $requestedMessage,
-				'messageTime'  => $result[1]
+				'messageTime'  => $result[1],
 				'messageValue' => $result[2] );
 				
 // Required for security checks when running mobile interface cross-domain
