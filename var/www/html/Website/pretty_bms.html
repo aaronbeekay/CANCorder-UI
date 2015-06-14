@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Powertrain status</title>
+
+    <!-- Bootstrap -->
+    <link href="m_assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="m_assets/css/m_styles.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	<div class="alert alert-info vehicle-alert alert-hv hidden" role="alert">
+  		<span class="glyphicon glyphicon-info-sign"></span>
+  		 Bike HV circuit enabled
+  	</div>
+  	<div class="alert alert-info alert-estop vehicle-alert hidden" role="alert"><span class="glyphicon glyphicon-remove-circle"></span>
+  		 Emergency stop active</div>
+  	<div class="alert alert-danger alert-framefault vehicle-alert hidden" role="alert">
+  		<span class="glyphicon glyphicon-warning-sign"></span>
+  		High-voltage frame fault detected
+  	</div>
+  	<h3>Powertrain status</h3>
+  	<div class="container">
+  		<!-- motor controller -->
+  		<div class="row bs-callout bs-callout-success">
+  			<div class="col-xs-4 system-icon-container">
+  				<div class="row">
+  					<div class="col-xs-12 system-icon">
+  						<img src="m_assets/img/ws200_100px.png" alt="Motor controller icon" class="system-icon" />
+  					</div>
+  					<div class="col-xs-12 system-title" id="mc">
+  						Motor controller
+  					</div>
+  				</div>
+  			</div>
+			<div class="col-xs-7 system-info">
+				<div id="mc_temperature">
+					<span class="system-variable-name" id="PhaseAtemp">Temperature: </span>
+					<span class="system-variable-value" id="PhaseAtemp">XX</span>
+					<span class="system-variable-value" id="mc_temperature_units"> ºC</span><br>
+				</div>
+				<div id="mc_BusVoltage">
+					<span class="system-variable-name" id="BusVoltage">DC bus voltage: </span>
+					<span class="system-variable-value" id="BusVoltage">XX</span>
+					<span class="system-variable-value" id="mc_temperature_units"> V</span><br>
+				</div>			
+				<div id="mc_MotorId">
+					<span class="system-variable-name" id="MotorId">Phase current: </span>
+					<span class="system-variable-value" id="MotorId">XX</span>
+					<span class="system-variable-value" id="mc_temperature_units"> A</span><br>
+				</div>
+			</div>
+		</div>
+
+  		<!-- motor -->
+  		<div class="row bs-callout bs-callout-default">
+  			<div class="col-xs-4 system-icon-container">
+  				<div class="row">
+  					<div class="col-xs-12 system-icon">
+  						<img src="m_assets/img/emrax268_100px.png" alt="Motor icon" class="system-icon" />
+  					</div>
+  					<div class="col-xs-12 system-title" id="motor">
+  						Motor
+  					</div>
+  				</div>
+  			</div>
+			<div class="col-xs-7 system-info">
+				<div id="motor_MotorTemp">
+						<span class="system-variable-name" id="MotorTemp">Temperature: </span>
+						<span class="system-variable-value" id="MotorTemp">XX</span>
+						<span class="system-variable-value" id="MotorTemp_units"> ºC</span><br>
+					</div>	
+				<div id="motor_MotorVelocity">
+						<span class="system-variable-name" id="MotorVelocity">Motor speed: </span>
+						<span class="system-variable-value" id="MotorVelocity">XX</span>
+						<span class="system-variable-value" id="mc_temperature_units"> rpm</span><br>
+					</div>
+			</div>
+		</div>
+  
+  		<!-- pack -->
+  		<div class="row bs-callout bs-callout-default">
+  			<div class="col-xs-4 system-icon-container">
+  				<div class="row">
+  					<div class="col-xs-12 system-icon">
+  						<img src="m_assets/img/battery_100px.png" alt="Pack icon" class="system-icon" />
+  					</div>
+  					<div class="col-xs-12 system-title" id="pack">
+  						Battery pack
+  					</div>
+  				</div>
+  			</div>
+			<div class="col-xs-7 system-info">
+				<div id="pack_temperature">
+						<span class="system-variable-name">Temperature: </span>
+						<span class="system-variable-value" id="PackTemp">XX</span>
+						<span class="system-variable-value" id="pack_temperature_units"> ºC</span><br>
+					</div>
+				<div id="pack_highcell">
+					<span class="system-variable-name">High cell: </span>
+					<span class="system-variable-value" id="pack_highcell">XX</span>
+					<span class="system-variable-value" id="pack_highcell_Units"> V</span>
+					(Pack <span class="system-variable-value" id="pack_highcell_packnum">X</span>) <br>
+				</div>	
+				
+				<div id="pack_lowcell">
+					<span class="system-variable-name">Low cell: </span>
+					<span class="system-variable-value" id="pack_lowcell">XX</span>
+					<span class="system-variable-value" id="pack_lowcell_Units"> V</span>
+					(Pack <span class="system-variable-value" id="pack_lowcell_packnum">X</span>) <br>
+				</div>	
+					
+				<div id="pack_sob">
+					<span class="system-variable-name" id="PackBalance">Balance state: </span>
+					<span class="system-variable-value" id="PackBalance">XX</span>
+					<span class="system-variable-value" id="PackBalance_units"> %</span><br>
+				</div>
+			</div>
+		</div>
+
+  		
+  	</div>
+
+    <script src="m_assets/js/jquery-1.11.1.min.js"></script>
+    <script src="m_assets/js/bootstrap.min.js"></script>
+    <script src="m_assets/js/m_status.js"></script>
+  </body>
+</html>
