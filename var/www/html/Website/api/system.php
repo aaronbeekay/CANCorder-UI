@@ -33,14 +33,23 @@ if ( $requestedMessage = "batteries" ) {
 
 foreach( $variables as $messageName) {
 	$filename = "/home/cancorder/data/" . $messageName;
-	$fileHandle = fopen($filename, "rb");
-	$binaryResult = fread($fileHandle, filesize($filename));
-	fclose($fileHandle);
 	
-	$result = unpack("d*", $binaryResult);
-	$output[$messageName] = array(
-			    "MessageTime"	=> $result[1],
-			    "MessageValue" 	=> $result[2] );
+	// Test if the file exists (if not, the message has not been received)
+	if( filesize($filename) > 0 ){
+		$fileHandle = fopen($filename, "rb");
+		$binaryResult = fread($fileHandle, filesize($filename));
+		fclose($fileHandle);
+	
+		$result = unpack("d*", $binaryResult);
+		$output[$messageName] 	= array(
+					"MessageTime"	=> $result[1],
+					"MessageValue" 	=> $result[2] );
+	} else {
+		error_log( $messageName . ' requested from API but no message in cache' )
+		
+		$output[$messageName] 	= array(
+					"MessageTime" 	=> -1 	);
+	}
 	
 }
 echo json_encode($output);
