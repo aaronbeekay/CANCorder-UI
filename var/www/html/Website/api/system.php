@@ -38,7 +38,7 @@ foreach( $variables as $messageName) {
 	fclose($fileHandle);
 	
 	$result = unpack("d*", $binaryResult);
-	$output[] = array(  "MessageName" 	=> $messageName,
+	$output[$messageName] = array(
 			    "MessageTime"	=> $result[1],
 			    "MessageValue" 	=> $result[2] );
 	
