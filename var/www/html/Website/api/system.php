@@ -26,8 +26,12 @@ if ( $requestedMessage = "batteries" ) {
 	$variables[] = "BIM4MaxCellVoltage";
 	$variables[] = "BIM5MinCellVoltage";
 	$variables[] = "BIM5MaxCellVoltage";
-
-
+	
+	$variables[] = "BIM1AvgCellVoltage";
+	$variables[] = "BIM2AvgCellVoltage";
+	$variables[] = "BIM3AvgCellVoltage";
+	$variables[] = "BIM4AvgCellVoltage";
+	$variables[] = "BIM5AvgCellVoltage";
 
 }
 
@@ -45,7 +49,7 @@ foreach( $variables as $messageName) {
 					"MessageTime"	=> $result[1],
 					"MessageValue" 	=> $result[2] );
 	} else {
-		error_log( $messageName . ' requested from API but no message in cache' )
+		error_log( $messageName . ' requested from API but no message in cache' );
 		
 		$output[$messageName] 	= array(
 					"MessageTime" 	=> -1 	);
