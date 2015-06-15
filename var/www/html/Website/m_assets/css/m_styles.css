@@ -10,17 +10,28 @@
   height: 80px;
 }
 
-/* 
-.row.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
+/* *** Battery pack "color shelves" visualization. *** */
+p.battery-shelf-full{
+	display: block;
+	margin: 0px;
+	margin-top: 3px;
+	margin-botom: 3px;
+	padding-left: 6px;
+	width: 100px;
+	height: 20px;
+	background-color:grey;
 }
-.row.no-gutters [class^="col-"],
-.row.no-gutters [class*=" col-"]{
-  padding-right: 0;
-  padding-left: 0;
+
+p.battery-shelf-half{
+	display: block;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	padding-left: 6px;
+	width: 70px;
+	background-color: grey;
 }
- */
 
 .container{
 	background-color: rgb(228, 228, 228);
