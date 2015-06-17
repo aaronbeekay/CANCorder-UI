@@ -15,10 +15,14 @@ p.battery-shelf-full{
 	display: block;
 	margin: 0px;
 	margin-top: 3px;
-	margin-botom: 3px;
+	margin-bottom: 3px;
 	padding-left: 6px;
+	padding-right: 25px;
 	width: 100px;
 	height: 20px;
+	font-size: small;
+	text-align: right;
+	color: white;
 	background-color:grey;
 }
 
@@ -29,7 +33,11 @@ p.battery-shelf-half{
 	margin-top: 3px;
 	margin-bottom: 3px;
 	padding-left: 6px;
+	padding-right: 10px;
 	width: 70px;
+	font-size: small;
+	text-align: right;
+	color: white;
 	background-color: grey;
 }
 
