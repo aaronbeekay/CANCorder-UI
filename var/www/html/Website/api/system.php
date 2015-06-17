@@ -47,7 +47,8 @@ foreach( $variables as $messageName) {
 		$result = unpack("d*", $binaryResult);
 		$output[$messageName] 	= array(
 					"MessageTime"	=> $result[1],
-					"MessageValue" 	=> $result[2] );
+					"MessageValue" 	=> $result[2],
+					"Age"			=> time() - $result[1] );
 	} else {
 		error_log( $messageName . ' requested from API but no message in cache' );
 		
