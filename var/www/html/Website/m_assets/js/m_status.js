@@ -1,3 +1,5 @@
+var freshnessThreshold = 10;	// number of seconds before a message is considered stale
+
 $( document ).ready(function() {
 	serverHost = '192.168.4.1';
 	serverPort = '80';
@@ -81,11 +83,20 @@ function updateBMS( ){
 			$(".system-variable-value#pack_highcell_packnum").text( maxPack);
 			
 			// Update pack average voltage indicators
-			$("#battery-shelf-1").text(data["BIM1AvgCellVoltage"]["MessageValue"]/1000 + " V")
-			$("#battery-shelf-2").text(data["BIM2AvgCellVoltage"]["MessageValue"]/1000 + " V")
-			$("#battery-shelf-3").text(data["BIM3AvgCellVoltage"]["MessageValue"]/1000 + " V")
-			$("#battery-shelf-4").text(data["BIM4AvgCellVoltage"]["MessageValue"]/1000 + " V")
-			$("#battery-shelf-5").text(data["BIM5AvgCellVoltage"]["MessageValue"]/1000 + " V")
+			function checkStalenessAndUpdate( message, container ){
+				if( data[message]["MessageTime"] != -1 && data[message]["Age"] < freshnessThreshold ){
+					$(container).css('background-color', 'green');
+					$(container).text( data[message]["MessageValue"]/1000 + " V");
+				} else {
+					$(container).css('background-color', 'gray');
+				}
+			}
+			
+			checkStalenessAndUpdate( "BIM1AvgCellVoltage", "#battery-shelf-1" );
+			checkStalenessAndUpdate( "BIM2AvgCellVoltage", "#battery-shelf-2" );
+			checkStalenessAndUpdate( "BIM3AvgCellVoltage", "#battery-shelf-3" );
+			checkStalenessAndUpdate( "BIM4AvgCellVoltage", "#battery-shelf-4" );
+			checkStalenessAndUpdate( "BIM5AvgCellVoltage", "#battery-shelf-5" );
 			
 			// Find maximum temperature and display it
 			var temperatures = [ 	data["CellTemp1"]["MessageValue"],
