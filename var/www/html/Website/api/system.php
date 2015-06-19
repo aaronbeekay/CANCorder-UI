@@ -8,11 +8,16 @@ header('Access-Control-Allow-Origin: *');
 
 $output = array();
 
-if ( $requestedMessage = "batteries" ) {
+if ( $requestedMessage == "batteries" ) {
 	$variables = array();
 	
 	for ($i = 1; $i < 109; $i++) {
 		$signalName = "Cell" . $i . "VoltageAndState";
+		$variables[] = $signalName;
+	}
+	
+	for ($i = 1; $i <= 36; $i++) {
+		$signalName = "CellTemp" . $i;
 		$variables[] = $signalName;
 	}
 	
@@ -33,6 +38,10 @@ if ( $requestedMessage = "batteries" ) {
 	$variables[] = "BIM4AvgCellVoltage";
 	$variables[] = "BIM5AvgCellVoltage";
 
+} elseif ( $requestedMessage == "motorController" ) {
+	$variables = array();
+	
+	$variables[] = "BIM1MinCellVoltage";
 }
 
 foreach( $variables as $messageName) {

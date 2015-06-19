@@ -86,6 +86,46 @@ function updateBMS( ){
 			$("#battery-shelf-3").text(data["BIM3AvgCellVoltage"]["MessageValue"]/1000 + " V")
 			$("#battery-shelf-4").text(data["BIM4AvgCellVoltage"]["MessageValue"]/1000 + " V")
 			$("#battery-shelf-5").text(data["BIM5AvgCellVoltage"]["MessageValue"]/1000 + " V")
+			
+			// Find maximum temperature and display it
+			var temperatures = [ 	data["CellTemp1"]["MessageValue"],
+									data["CellTemp2"]["MessageValue"],
+									data["CellTemp3"]["MessageValue"],
+									data["CellTemp4"]["MessageValue"],
+									data["CellTemp5"]["MessageValue"],
+									data["CellTemp6"]["MessageValue"],
+									data["CellTemp7"]["MessageValue"],
+									data["CellTemp8"]["MessageValue"],
+									data["CellTemp9"]["MessageValue"],
+									data["CellTemp10"]["MessageValue"],
+									data["CellTemp11"]["MessageValue"],
+									data["CellTemp12"]["MessageValue"],
+									data["CellTemp13"]["MessageValue"],
+									data["CellTemp14"]["MessageValue"],
+									data["CellTemp15"]["MessageValue"],
+									data["CellTemp16"]["MessageValue"],
+									data["CellTemp17"]["MessageValue"],
+									data["CellTemp18"]["MessageValue"],
+									data["CellTemp19"]["MessageValue"],
+									data["CellTemp20"]["MessageValue"],
+									data["CellTemp21"]["MessageValue"],
+									data["CellTemp22"]["MessageValue"],
+									data["CellTemp23"]["MessageValue"],
+									data["CellTemp24"]["MessageValue"],
+									data["CellTemp25"]["MessageValue"],
+									data["CellTemp26"]["MessageValue"],
+									data["CellTemp27"]["MessageValue"],
+									data["CellTemp28"]["MessageValue"],
+									data["CellTemp29"]["MessageValue"],
+									data["CellTemp30"]["MessageValue"],
+									data["CellTemp31"]["MessageValue"],
+									data["CellTemp32"]["MessageValue"],
+									data["CellTemp33"]["MessageValue"],
+									data["CellTemp34"]["MessageValue"],
+									data["CellTemp35"]["MessageValue"],
+									data["CellTemp36"]["MessageValue"]		];
+			var maxTemperature = Math.max.apply(null, temperatures);
+			$(".system-variable-value#PackTemp").text( maxTemperature.toFixed(1) );
 		} )
 		.error( 	
 			function(jqxhr, textStatus, error) {
