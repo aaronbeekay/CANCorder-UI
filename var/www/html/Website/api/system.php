@@ -7,17 +7,11 @@ $requestedMessage = $_GET['systemName'];
 header('Access-Control-Allow-Origin: *');	
 
 $output = array();
+$variables = array();
 
 // Choose which messages to return
 switch ($requestedMessage){
 	case "batteries":
-		$variables = array();
-	
-		for ($i = 1; $i < 109; $i++) {
-			$signalName = "Cell" . $i . "VoltageAndState";
-			$variables[] = $signalName;
-		}
-	
 		for ($i = 1; $i <= 36; $i++) {
 			$signalName = "CellTemp" . $i;
 			$variables[] = $signalName;
@@ -42,12 +36,17 @@ switch ($requestedMessage){
 
 		break;
 	case "allBatteries":
+		// TODO: should execute this async
+		exec('./cellRTR.sh');
 		
-	case "motorController":
-		$variables = array();
-	
-		$variables[] = "BIM1MinCellVoltage";
+		for ($i = 1; $i < 109; $i++) {
+			$signalName = "Cell" . $i . "VoltageAndState";
+			$variables[] = $signalName;
+		}
+		break;
 		
+	case "motorController":	
+		// To be added
 		break;
 		
 	default:
