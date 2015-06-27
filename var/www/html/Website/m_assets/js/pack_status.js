@@ -1,4 +1,6 @@
-var freshnessThreshold = 10;	// number of seconds before a message is considered stale
+var freshnessThreshold 	= 10;	// number of seconds before a message is considered stale
+var graphMin 			= 3.5;	// left-side value of bar graphs
+var graphMax 			= 4.2;	// right-side value of bar graphs
 
 $( document ).ready(function() {
 	serverHost = '192.168.4.1';
@@ -28,7 +30,24 @@ function updateAllCells( ){
 				
 				if( cellVoltageValid ){
 					// TODO: indicate validity of data
-					$(domID).text( (data[messageName]["MessageValue"]/1000).toFixed(3) );
+					
+					// Update voltage text
+					var voltage 		= data[messageName]["MessageValue"]/1000;
+					$(".battery-bar" + domID).text( voltage.toFixed(3) );
+					
+					// Update bar graph width
+					if( voltage > graphMax ){
+						// TODO: indicate overvoltage
+						voltage = graphMax;
+					} else if (voltage < graphMin ){
+						// TODO: indicate undervoltage
+						voltage = graphMin;
+					}
+					
+					var maxWidth = 100;		// maximum width of bar graph in px - should be dynamic...
+					var graphPct = (voltage - graphMin)/(graphMax - graphMin);
+					$(".battery-progress-bar" + domID).css('width', (graphPct * maxWidth).toFixed(3) + 'px');
+					
 				} else {
 					// TODO: indicate invalid data
 				}		
