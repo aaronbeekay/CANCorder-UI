@@ -59,7 +59,8 @@ foreach( $variables as $messageName) {
 					"MessageValue" 	=> $result[2],
 					"Age"			=> time() - $result[1] );
 	} else {
-		error_log( $messageName . ' requested from API but no message in cache' );
+		// this fills up the logs really fast
+		//error_log( $messageName . ' requested from API but no message in cache' );
 		
 		$output[$messageName] 	= array(
 					"MessageTime" 	=> -1 	);
