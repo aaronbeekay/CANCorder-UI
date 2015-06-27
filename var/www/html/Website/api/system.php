@@ -8,40 +8,52 @@ header('Access-Control-Allow-Origin: *');
 
 $output = array();
 
-if ( $requestedMessage == "batteries" ) {
-	$variables = array();
+// Choose which messages to return
+switch ($requestedMessage){
+	case "batteries":
+		$variables = array();
 	
-	for ($i = 1; $i < 109; $i++) {
-		$signalName = "Cell" . $i . "VoltageAndState";
-		$variables[] = $signalName;
-	}
+		for ($i = 1; $i < 109; $i++) {
+			$signalName = "Cell" . $i . "VoltageAndState";
+			$variables[] = $signalName;
+		}
 	
-	for ($i = 1; $i <= 36; $i++) {
-		$signalName = "CellTemp" . $i;
-		$variables[] = $signalName;
-	}
+		for ($i = 1; $i <= 36; $i++) {
+			$signalName = "CellTemp" . $i;
+			$variables[] = $signalName;
+		}
 	
-	$variables[] = "BIM1MinCellVoltage";
-	$variables[] = "BIM1MaxCellVoltage";
-	$variables[] = "BIM2MinCellVoltage";
-	$variables[] = "BIM2MaxCellVoltage";
-	$variables[] = "BIM3MinCellVoltage";
-	$variables[] = "BIM3MaxCellVoltage";
-	$variables[] = "BIM4MinCellVoltage";
-	$variables[] = "BIM4MaxCellVoltage";
-	$variables[] = "BIM5MinCellVoltage";
-	$variables[] = "BIM5MaxCellVoltage";
+		$variables[] = "BIM1MinCellVoltage";
+		$variables[] = "BIM1MaxCellVoltage";
+		$variables[] = "BIM2MinCellVoltage";
+		$variables[] = "BIM2MaxCellVoltage";
+		$variables[] = "BIM3MinCellVoltage";
+		$variables[] = "BIM3MaxCellVoltage";
+		$variables[] = "BIM4MinCellVoltage";
+		$variables[] = "BIM4MaxCellVoltage";
+		$variables[] = "BIM5MinCellVoltage";
+		$variables[] = "BIM5MaxCellVoltage";
 	
-	$variables[] = "BIM1AvgCellVoltage";
-	$variables[] = "BIM2AvgCellVoltage";
-	$variables[] = "BIM3AvgCellVoltage";
-	$variables[] = "BIM4AvgCellVoltage";
-	$variables[] = "BIM5AvgCellVoltage";
+		$variables[] = "BIM1AvgCellVoltage";
+		$variables[] = "BIM2AvgCellVoltage";
+		$variables[] = "BIM3AvgCellVoltage";
+		$variables[] = "BIM4AvgCellVoltage";
+		$variables[] = "BIM5AvgCellVoltage";
 
-} elseif ( $requestedMessage == "motorController" ) {
-	$variables = array();
+		break;
+	case "allBatteries":
+		
+	case "motorController":
+		$variables = array();
 	
-	$variables[] = "BIM1MinCellVoltage";
+		$variables[] = "BIM1MinCellVoltage";
+		
+		break;
+		
+	default:
+		// FIXME: should generate a proper HTTP error here
+		echo "Invalid system requested";
+		die();
 }
 
 foreach( $variables as $messageName) {
