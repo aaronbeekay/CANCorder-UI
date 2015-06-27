@@ -16,7 +16,12 @@ $( document ).ready(function() {
 	
 function updateAllCells( ){
 	// send GET request to update BMS status vars
-	uri = 'http://' + serverHost + ':' + serverPort + '/api/system.php?systemName=allBatteries';
+	
+	//Real:
+	//uri = 'http://' + serverHost + ':' + serverPort + '/api/system.php?systemName=allBatteries';
+	
+	//Simulate:
+	uri = 'http://' + serverHost + ':' + serverPort + '/api/system.php?systemName=fakeAllBatteries';
 	
 	var jqxhr = $.getJSON(uri, 
 		function(data) { 

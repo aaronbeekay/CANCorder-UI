@@ -45,6 +45,23 @@ switch ($requestedMessage){
 		}
 		break;
 		
+	// This case is for testing the BMS page
+	case "fakeAllBatteries":
+		
+		for ($i = 1; $i < 109; $i++) {
+			$signalName = "Cell" . $i . "VoltageAndState";
+			$variables[] = $signalName;
+		}
+		foreach($variables as $messageName){
+			$output[$messageName] 	= array(
+						"MessageTime"	=> time(),
+						"MessageValue" 	=> rand(3500, 4150),
+						"Age"			=> 1 );
+		}
+		
+		echo json_encode($output);
+		die();
+		
 	case "motorController":	
 		// To be added
 		break;
