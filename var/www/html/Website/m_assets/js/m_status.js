@@ -76,17 +76,39 @@ function updateBMS( ){
 			var maxPack 		= maxVoltages.indexOf( Math.max.apply(Math, maxVoltages) ) + 1;
 			
 			// TODO: check for message staleness
+			// TODO: check for BIM communication errors
+			
+			// boolean: are the maximum cell voltages valid?
+			var maxCellVoltageValid	= ( 	data["BIM1MaxCellVoltage"]["MessageTime"] != -1 			
+										&&	data["BIM1MaxCellVoltage"]["Age"] <= freshnessThreshold		
+										&&	data["BIM2MaxCellVoltage"]["MessageTime"] != -1 			
+										&&	data["BIM2MaxCellVoltage"]["Age"] <= freshnessThreshold		
+										&&	data["BIM3MaxCellVoltage"]["MessageTime"] != -1 			
+										&&	data["BIM3MaxCellVoltage"]["Age"] <= freshnessThreshold		
+										&&	data["BIM4MaxCellVoltage"]["MessageTime"] != -1 			
+										&&	data["BIM4MaxCellVoltage"]["Age"] <= freshnessThreshold		
+										&&	data["BIM5MaxCellVoltage"]["MessageTime"] != -1 			
+										&&	data["BIM5MaxCellVoltage"]["Age"] <= freshnessThreshold			);
+										
+			if( maxCellVoltageValid ){
+				$(".system-variable-value#pack_highcell").text( (maxCellVoltage/1000).toFixed(3) );
+				$(".system-variable-value#pack_highcell_packnum").text(maxPack);
+				$(".system-variable-value#pack_highcell").css('text-decoration', 'none');
+				$(".system-variable-value#pack_highcell_packnum").css('text-decoration', 'none');
+			} else {
+				$(".system-variable-value#pack_highcell").css('text-decoration', 'line-through');
+				$(".system-variable-value#pack_highcell_packnum").css('text-decoration', 'line-through');
+			}
 				
-			$(".system-variable-value#pack_highcell").text( maxCellVoltage/1000 );
-			$(".system-variable-value#pack_lowcell").text( minCellVoltage/1000 );
+			$(".system-variable-value#pack_lowcell").text( (minCellVoltage/1000).toFixed(3) );
 			$(".system-variable-value#pack_lowcell_packnum").text( minPack );
-			$(".system-variable-value#pack_highcell_packnum").text( maxPack);
+			
 			
 			// Update pack average voltage indicators
 			function checkStalenessAndUpdate( message, container ){
 				if( data[message]["MessageTime"] != -1 && data[message]["Age"] < freshnessThreshold ){
 					$(container).css('background-color', 'green');
-					$(container).text( data[message]["MessageValue"]/1000 + " V");
+					$(container).text( (data[message]["MessageValue"]/1000).toFixed(3) + " V");
 				} else {
 					$(container).css('background-color', 'gray');
 				}
@@ -145,6 +167,18 @@ function updateBMS( ){
 			 }
 		);
 	}
+
+/* testStaleness: check if a given message is past the global freshness threshold.
+ * 		If so: trigger FIXME: SOME ACTIONS on the /selector/ given to cause the 
+ * 		display to reflect the staleness.
+ *
+ * 		Arguments:
+ *			string message: the CAN message name to be checked (e.g., "BIM1AvgCellVoltage")
+ * 			string selector: a selector that will identify some DOM elements to be 
+ * 				modified as a result of the staleness check
+function testStaleness( message, selector ){
+
+}
 
 /*
 
