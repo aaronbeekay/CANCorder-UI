@@ -1,0 +1,27 @@
+/*!
+ * CSS for overall pack page
+ *
+ */
+
+p.battery-bar{
+	display: block;
+	margin: 0px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	padding-left: 6px;
+	padding-right: 25px;
+	width: 100px;
+	height: 20px;
+	font-size: small;
+	text-align: right;
+	color: white;
+	background-color:grey;
+}
+
+.battery-progress-bar{
+  background-color: green;
+  z-index: 2;
+  margin-top: -23px; /* works for whatever reason; do not change */
+  height: 20px;
+  width: 20px;
+}
