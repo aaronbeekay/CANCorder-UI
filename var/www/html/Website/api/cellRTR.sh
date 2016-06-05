@@ -5,31 +5,30 @@
 
 # Requires cansend (from can-utils) to be installed on $PATH
 
-cansend can0 310\#R
-cansend can0 311\#R
-cansend can0 312\#R
-cansend can0 313\#R
-cansend can0 314\#R
-cansend can0 315\#R
-cansend can0 316\#R
-cansend can0 317\#R
-cansend can0 318\#R
-cansend can0 319\#R
-cansend can0 31A\#R
-cansend can0 31B\#R
-cansend can0 31C\#R
-cansend can0 31D\#R
-cansend can0 31E\#R
-cansend can0 31F\#R
-cansend can0 320\#R
-cansend can0 321\#R
-cansend can0 322\#R
-cansend can0 323\#R
-cansend can0 324\#R
-cansend can0 325\#R
-cansend can0 326\#R
-cansend can0 327\#R
-cansend can0 328\#R
-cansend can0 329\#R
-cansend can0 32A\#R
-
+cangen can0 -R -I 310 -L 8 -n 1
+cangen can0 -R -I 311 -L 8 -n 1
+cangen can0 -R -I 312 -L 8 -n 1
+cangen can0 -R -I 313 -L 8 -n 1
+cangen can0 -R -I 314 -L 8 -n 1
+cangen can0 -R -I 315 -L 8 -n 1
+cangen can0 -R -I 316 -L 8 -n 1
+cangen can0 -R -I 317 -L 8 -n 1
+cangen can0 -R -I 318 -L 8 -n 1
+cangen can0 -R -I 319 -L 8 -n 1
+cangen can0 -R -I 31A -L 8 -n 1
+cangen can0 -R -I 31B -L 8 -n 1
+cangen can0 -R -I 31C -L 8 -n 1
+cangen can0 -R -I 31D -L 8 -n 1
+cangen can0 -R -I 31E -L 8 -n 1
+cangen can0 -R -I 31F -L 8 -n 1
+cangen can0 -R -I 320 -L 8 -n 1
+cangen can0 -R -I 321 -L 8 -n 1
+cangen can0 -R -I 322 -L 8 -n 1
+cangen can0 -R -I 323 -L 8 -n 1
+cangen can0 -R -I 324 -L 8 -n 1
+cangen can0 -R -I 325 -L 8 -n 1
+cangen can0 -R -I 326 -L 8 -n 1
+cangen can0 -R -I 327 -L 8 -n 1
+cangen can0 -R -I 328 -L 8 -n 1
+cangen can0 -R -I 329 -L 8 -n 1
+cangen can0 -R -I 32A -L 8 -n 1

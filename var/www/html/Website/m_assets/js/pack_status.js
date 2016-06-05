@@ -21,7 +21,7 @@ function updateAllCells( ){
 	//uri = 'http://' + serverHost + ':' + serverPort + '/api/system.php?systemName=allBatteries';
 	
 	//Simulate:
-	uri = 'http://' + serverHost + ':' + serverPort + '/api/system.php?systemName=fakeAllBatteries';
+	uri = 'http://' + serverHost + ':' + serverPort + '/api/system.php?systemName=allBatteries';
 	
 	var jqxhr = $.getJSON(uri, 
 		function(data) { 
