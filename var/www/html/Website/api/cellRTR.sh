@@ -5,6 +5,7 @@
 
 # Requires cansend (from can-utils) to be installed on $PATH
 
+cangen can0 -R -I 30F -L 8 -n 1
 cangen can0 -R -I 310 -L 8 -n 1
 cangen can0 -R -I 311 -L 8 -n 1
 cangen can0 -R -I 312 -L 8 -n 1
@@ -32,3 +33,9 @@ cangen can0 -R -I 327 -L 8 -n 1
 cangen can0 -R -I 328 -L 8 -n 1
 cangen can0 -R -I 329 -L 8 -n 1
 cangen can0 -R -I 32A -L 8 -n 1
+cangen can0 -R -I 32B -L 8 -n 1
+cangen can0 -R -I 32C -L 8 -n 1
+cangen can0 -R -I 32D -L 8 -n 1
+cangen can0 -R -I 32E -L 8 -n 1
+cangen can0 -R -I 32F -L 8 -n 1
+cangen can0 -R -I 330 -L 8 -n 1
