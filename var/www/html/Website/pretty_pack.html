@@ -1,297 +1,41 @@
 <!DOCTYPE html>
-<head>
-	<!-- Bootstrap -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Powertrain status</title>
+
+    <!-- Bootstrap -->
     <link href="m_assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="m_assets/css/m_styles.css" rel="stylesheet">
-    <link href="m_assets/css/pretty_pack_styles.css" rel="stylesheet">
-</head>
-<body>
-<div class="container">
-	<div class="row">
-		<!-- Pack 1 has cells 85-108 -->
-		<div class="col-md-4">
-			Pack 1, PL-8 #1
-			<p class="battery-bar" id="cell-85">X V</p>
-			<div class="battery-progress-bar" id="cell-85"></div>
-			<p class="battery-bar" id="cell-86">X V</p>
-			<div class="battery-progress-bar" id="cell-86"></div>
-			<p class="battery-bar" id="cell-87">X V</p>
-			<div class="battery-progress-bar" id="cell-87"></div>
-			<p class="battery-bar" id="cell-88">X V</p>
-			<div class="battery-progress-bar" id="cell-88"></div>
-			<p class="battery-bar" id="cell-89">X V</p>
-			<div class="battery-progress-bar" id="cell-89"></div>
-			<p class="battery-bar" id="cell-90">X V</p>
-			<div class="battery-progress-bar" id="cell-90"></div>
-			<p class="battery-bar" id="cell-91">X V</p>
-			<div class="battery-progress-bar" id="cell-91"></div>
-			<p class="battery-bar" id="cell-92">X V</p>
-			<div class="battery-progress-bar" id="cell-92"></div>
-		</div>
-		<div class="col-md-4">
-			Pack 1, PL-8 #2
-			<p class="battery-bar" id="cell-93">X V</p>
-			<div class="battery-progress-bar" id="cell-93"></div>
-			<p class="battery-bar" id="cell-94">X V</p>
-			<div class="battery-progress-bar" id="cell-94"></div>
-			<p class="battery-bar" id="cell-95">X V</p>
-			<div class="battery-progress-bar" id="cell-95"></div>
-			<p class="battery-bar" id="cell-96">X V</p>
-			<div class="battery-progress-bar" id="cell-96"></div>
-			<p class="battery-bar" id="cell-97">X V</p>
-			<div class="battery-progress-bar" id="cell-97"></div>
-			<p class="battery-bar" id="cell-98">X V</p>
-			<div class="battery-progress-bar" id="cell-98"></div>
-			<p class="battery-bar" id="cell-99">X V</p>
-			<div class="battery-progress-bar" id="cell-99"></div>
-			<p class="battery-bar" id="cell-100">X V</p>
-			<div class="battery-progress-bar" id="cell-100"></div>
-		</div>
-		<div class="col-md-4">
-			Pack 1, PL-8 #3
-			<p class="battery-bar" id="cell-101">X V</p>
-			<div class="battery-progress-bar" id="cell-101"></div>
-			<p class="battery-bar" id="cell-102">X V</p>
-			<div class="battery-progress-bar" id="cell-102"></div>
-			<p class="battery-bar" id="cell-103">X V</p>
-			<div class="battery-progress-bar" id="cell-103"></div>
-			<p class="battery-bar" id="cell-104">X V</p>
-			<div class="battery-progress-bar" id="cell-104"></div>
-			<p class="battery-bar" id="cell-105">X V</p>
-			<div class="battery-progress-bar" id="cell-105"></div>
-			<p class="battery-bar" id="cell-106">X V</p>
-			<div class="battery-progress-bar" id="cell-106"></div>
-			<p class="battery-bar" id="cell-107">X V</p>
-			<div class="battery-progress-bar" id="cell-107"></div>
-			<p class="battery-bar" id="cell-108">X V</p>
-			<div class="battery-progress-bar" id="cell-108"></div>
-		</div>
-	</div>
-	
-	<div class="row">
-		<!-- Pack 2 has cells 61-84 -->
-		<div class="col-md-4">
-			Pack 2, PL-8 #1
-			<p class="battery-bar" id="cell-61">X V</p>
-			<div class="battery-progress-bar" id="cell-61"></div>
-			<p class="battery-bar" id="cell-62">X V</p>
-			<div class="battery-progress-bar" id="cell-62"></div>
-			<p class="battery-bar" id="cell-63">X V</p>
-			<div class="battery-progress-bar" id="cell-63"></div>
-			<p class="battery-bar" id="cell-64">X V</p>
-			<div class="battery-progress-bar" id="cell-64"></div>
-			<p class="battery-bar" id="cell-65">X V</p>
-			<div class="battery-progress-bar" id="cell-65"></div>
-			<p class="battery-bar" id="cell-66">X V</p>
-			<div class="battery-progress-bar" id="cell-66"></div>
-			<p class="battery-bar" id="cell-67">X V</p>
-			<div class="battery-progress-bar" id="cell-67"></div>
-			<p class="battery-bar" id="cell-68">X V</p>
-			<div class="battery-progress-bar" id="cell-68"></div>
-		</div>
-		<div class="col-md-4">
-			Pack 2, PL-8 #2
-			<p class="battery-bar" id="cell-69">X V</p>
-			<div class="battery-progress-bar" id="cell-69"></div>
-			<p class="battery-bar" id="cell-70">X V</p>
-			<div class="battery-progress-bar" id="cell-70"></div>
-			<p class="battery-bar" id="cell-71">X V</p>
-			<div class="battery-progress-bar" id="cell-71"></div>
-			<p class="battery-bar" id="cell-72">X V</p>
-			<div class="battery-progress-bar" id="cell-72"></div>
-			<p class="battery-bar" id="cell-73">X V</p>
-			<div class="battery-progress-bar" id="cell-73"></div>
-			<p class="battery-bar" id="cell-74">X V</p>
-			<div class="battery-progress-bar" id="cell-74"></div>
-			<p class="battery-bar" id="cell-75">X V</p>
-			<div class="battery-progress-bar" id="cell-75"></div>
-			<p class="battery-bar" id="cell-76">X V</p>
-			<div class="battery-progress-bar" id="cell-76"></div>
-		</div>
-		<div class="col-md-4">
-			Pack 2, PL-8 #3
-			<p class="battery-bar" id="cell-77">X V</p>
-			<div class="battery-progress-bar" id="cell-77"></div>
-			<p class="battery-bar" id="cell-78">X V</p>
-			<div class="battery-progress-bar" id="cell-78"></div>
-			<p class="battery-bar" id="cell-79">X V</p>
-			<div class="battery-progress-bar" id="cell-79"></div>
-			<p class="battery-bar" id="cell-80">X V</p>
-			<div class="battery-progress-bar" id="cell-80"></div>
-			<p class="battery-bar" id="cell-81">X V</p>
-			<div class="battery-progress-bar" id="cell-81"></div>
-			<p class="battery-bar" id="cell-82">X V</p>
-			<div class="battery-progress-bar" id="cell-82"></div>
-			<p class="battery-bar" id="cell-83">X V</p>
-			<div class="battery-progress-bar" id="cell-83"></div>
-			<p class="battery-bar" id="cell-84">X V</p>
-			<div class="battery-progress-bar" id="cell-84"></div>
-		</div>
-	</div>
-	
-	<div class="row">
-		<!-- Pack 3 has cells 37-60 -->
-		<div class="col-md-4">
-			Pack 3, PL-8 #1
-			<p class="battery-bar" id="cell-37">X V</p>
-			<div class="battery-progress-bar" id="cell-37"></div>
-			<p class="battery-bar" id="cell-38">X V</p>
-			<div class="battery-progress-bar" id="cell-38"></div>
-			<p class="battery-bar" id="cell-39">X V</p>
-			<div class="battery-progress-bar" id="cell-39"></div>
-			<p class="battery-bar" id="cell-40">X V</p>
-			<div class="battery-progress-bar" id="cell-40"></div>
-			<p class="battery-bar" id="cell-41">X V</p>
-			<div class="battery-progress-bar" id="cell-41"></div>
-			<p class="battery-bar" id="cell-42">X V</p>
-			<div class="battery-progress-bar" id="cell-42"></div>
-			<p class="battery-bar" id="cell-43">X V</p>
-			<div class="battery-progress-bar" id="cell-43"></div>
-			<p class="battery-bar" id="cell-44">X V</p>
-			<div class="battery-progress-bar" id="cell-44"></div>
-		</div>
-		<div class="col-md-4">
-			Pack 3, PL-8 #2
-			<p class="battery-bar" id="cell-45">X V</p>
-			<div class="battery-progress-bar" id="cell-45"></div>
-			<p class="battery-bar" id="cell-46">X V</p>
-			<div class="battery-progress-bar" id="cell-46"></div>
-			<p class="battery-bar" id="cell-47">X V</p>
-			<div class="battery-progress-bar" id="cell-47"></div>
-			<p class="battery-bar" id="cell-48">X V</p>
-			<div class="battery-progress-bar" id="cell-48"></div>
-			<p class="battery-bar" id="cell-49">X V</p>
-			<div class="battery-progress-bar" id="cell-49"></div>
-			<p class="battery-bar" id="cell-50">X V</p>
-			<div class="battery-progress-bar" id="cell-50"></div>
-			<p class="battery-bar" id="cell-51">X V</p>
-			<div class="battery-progress-bar" id="cell-51"></div>
-			<p class="battery-bar" id="cell-52">X V</p>
-			<div class="battery-progress-bar" id="cell-52"></div>
-		</div>
-		<div class="col-md-4">
-			Pack 3, PL-8 #3
-			<p class="battery-bar" id="cell-53">X V</p>
-			<div class="battery-progress-bar" id="cell-53"></div>
-			<p class="battery-bar" id="cell-54">X V</p>
-			<div class="battery-progress-bar" id="cell-54"></div>
-			<p class="battery-bar" id="cell-55">X V</p>
-			<div class="battery-progress-bar" id="cell-55"></div>
-			<p class="battery-bar" id="cell-56">X V</p>
-			<div class="battery-progress-bar" id="cell-56"></div>
-			<p class="battery-bar" id="cell-57">X V</p>
-			<div class="battery-progress-bar" id="cell-57"></div>
-			<p class="battery-bar" id="cell-58">X V</p>
-			<div class="battery-progress-bar" id="cell-58"></div>
-			<p class="battery-bar" id="cell-59">X V</p>
-			<div class="battery-progress-bar" id="cell-59"></div>
-			<p class="battery-bar" id="cell-60">X V</p>
-			<div class="battery-progress-bar" id="cell-60"></div>
-		</div>
-	</div>
-	
-	<div class="row">
-		<!-- Pack 4 has cells 13-36 -->
-		<div class="col-md-4">
-			Pack 4, PL-8 #1
-			<p class="battery-bar" id="cell-13">X V</p>
-			<div class="battery-progress-bar" id="cell-13"></div>
-			<p class="battery-bar" id="cell-14">X V</p>
-			<div class="battery-progress-bar" id="cell-14"></div>
-			<p class="battery-bar" id="cell-15">X V</p>
-			<div class="battery-progress-bar" id="cell-15"></div>
-			<p class="battery-bar" id="cell-16">X V</p>
-			<div class="battery-progress-bar" id="cell-16"></div>
-			<p class="battery-bar" id="cell-17">X V</p>
-			<div class="battery-progress-bar" id="cell-17"></div>
-			<p class="battery-bar" id="cell-18">X V</p>
-			<div class="battery-progress-bar" id="cell-18"></div>
-			<p class="battery-bar" id="cell-19">X V</p>
-			<div class="battery-progress-bar" id="cell-19"></div>
-			<p class="battery-bar" id="cell-20">X V</p>
-			<div class="battery-progress-bar" id="cell-20"></div>
-		</div>
-		<div class="col-md-4">
-			Pack 4, PL-8 #2
-			<p class="battery-bar" id="cell-21">X V</p>
-			<div class="battery-progress-bar" id="cell-21"></div>
-			<p class="battery-bar" id="cell-22">X V</p>
-			<div class="battery-progress-bar" id="cell-22"></div>
-			<p class="battery-bar" id="cell-23">X V</p>
-			<div class="battery-progress-bar" id="cell-23"></div>
-			<p class="battery-bar" id="cell-24">X V</p>
-			<div class="battery-progress-bar" id="cell-24"></div>
-			<p class="battery-bar" id="cell-25">X V</p>
-			<div class="battery-progress-bar" id="cell-25"></div>
-			<p class="battery-bar" id="cell-26">X V</p>
-			<div class="battery-progress-bar" id="cell-26"></div>
-			<p class="battery-bar" id="cell-27">X V</p>
-			<div class="battery-progress-bar" id="cell-27"></div>
-			<p class="battery-bar" id="cell-28">X V</p>
-			<div class="battery-progress-bar" id="cell-28"></div>
-		</div>
-		<div class="col-md-4">
-			Pack 4, PL-8 #3
-			<p class="battery-bar" id="cell-29">X V</p>
-			<div class="battery-progress-bar" id="cell-30"></div>
-			<p class="battery-bar" id="cell-30">X V</p>
-			<div class="battery-progress-bar" id="cell-31"></div>
-			<p class="battery-bar" id="cell-31">X V</p>
-			<div class="battery-progress-bar" id="cell-32"></div>
-			<p class="battery-bar" id="cell-32">X V</p>
-			<div class="battery-progress-bar" id="cell-33"></div>
-			<p class="battery-bar" id="cell-33">X V</p>
-			<div class="battery-progress-bar" id="cell-34"></div>
-			<p class="battery-bar" id="cell-34">X V</p>
-			<div class="battery-progress-bar" id="cell-35"></div>
-			<p class="battery-bar" id="cell-35">X V</p>
-			<div class="battery-progress-bar" id="cell-36"></div>
-			<p class="battery-bar" id="cell-36">X V</p>
-			<div class="battery-progress-bar" id="cell-37"></div>
-		</div>
-	</div>
-	
-	<div class="row">
-		<!-- Pack 5 has cells 1-12 -->
-		<div class="col-md-4">
-			Pack 5, PL-8 #1
-			<p class="battery-bar" id="cell-1">X V</p>
-			<div class="battery-progress-bar" id="cell-1"></div>
-			<p class="battery-bar" id="cell-2">X V</p>
-			<div class="battery-progress-bar" id="cell-2"></div>
-			<p class="battery-bar" id="cell-3">X V</p>
-			<div class="battery-progress-bar" id="cell-3"></div>
-			<p class="battery-bar" id="cell-4">X V</p>
-			<div class="battery-progress-bar" id="cell-4"></div>
-			<p class="battery-bar" id="cell-5">X V</p>
-			<div class="battery-progress-bar" id="cell-5"></div>
-			<p class="battery-bar" id="cell-6">X V</p>
-			<div class="battery-progress-bar" id="cell-6"></div>
-			<p class="battery-bar" id="cell-7">X V</p>
-			<div class="battery-progress-bar" id="cell-7"></div>
-			<p class="battery-bar" id="cell-8">X V</p>
-			<div class="battery-progress-bar" id="cell-8"></div>
-		</div>
-		<div class="col-md-4">
-			Pack 5, PL-8 #2
-			<p class="battery-bar" id="cell-9">X V</p>
-			<div class="battery-progress-bar" id="cell-9"></div>
-			<p class="battery-bar" id="cell-10">X V</p>
-			<div class="battery-progress-bar" id="cell-10"></div>
-			<p class="battery-bar" id="cell-11">X V</p>
-			<div class="battery-progress-bar" id="cell-11"></div>
-			<p class="battery-bar" id="cell-12">X V</p>
-			<div class="battery-progress-bar" id="cell-12"></div>
-		</div>
-		<div class="col-md-4">
-			Pack 5, PL-8 #3
-		</div>
-	</div>
-</div>
+    <link href="m_assets/css/pack.css" rel="stylesheet">
 
-<script src="m_assets/js/jquery-1.11.1.min.js"></script>
-<script src="m_assets/js/bootstrap.min.js"></script>
-<script src="m_assets/js/pack_status.js"></script>
-
-</body>
-</html>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	<div id="error_overlay">
+  		<p class="error_overlay_text">Lost connection...</p>
+  	</div>
+  	
+  	<div id="screen_border">
+	  	<div class="row">
+	  		<div class="col-xs-12" id="cellVoltageChart"></div>
+	  	</div>
+	  	
+	  	<div class="row">
+	  		<div class="col-xs-12" id="cellSOCChart"></div>
+	  	</div>
+	</div>
+	
+    <script src="m_assets/js/jquery-1.11.1.min.js"></script>
+    <script src="m_assets/js/bootstrap.min.js"></script>
+    <script src="m_assets/js/cell_functions.js"></script>
+    <script src="m_assets/js/pack.js"></script>
+     <script src="m_assets/js/highcharts.js"></script>
+  </body>
+</html>		

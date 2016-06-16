@@ -1,0 +1,21 @@
+#error_overlay{
+	position: absolute;
+	width: 100vh;
+	height: 120vh;
+	background-color: rgba(0,0,0,0.4);
+	z-index: 100;
+	display: none;
+}
+.error_overlay_text{
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 50%;
+	text-align: center;
+	margin-top: auto;
+	margin-bottom: auto;
+	font-size: 30px;
+	color: white;
+	position: relative;
+	top: 30%;
+	transform: 			translateY(-50%);
+}
