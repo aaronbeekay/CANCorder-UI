@@ -39,7 +39,7 @@ switch ($requestedMessage){
 		// TODO: should execute this async
 		//exec('./cellRTR.sh');
 		
-		for ($i = 1; $i < 134; $i++) {
+		for ($i = 1; $i <= 134; $i++) {
 			$signalName = "Cell" . $i . "Voltage";
 			$variables[] = $signalName;
 		}
@@ -48,7 +48,7 @@ switch ($requestedMessage){
 	// This case is for testing the BMS page
 	case "fakeAllBatteries":
 		
-		for ($i = 1; $i < 134; $i++) {
+		for ($i = 1; $i <= 134; $i++) {
 			$signalName = "Cell" . $i . "Voltage";
 			$variables[] = $signalName;
 		}
