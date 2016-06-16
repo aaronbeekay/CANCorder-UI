@@ -19,3 +19,7 @@
 	top: 30%;
 	transform: 			translateY(-50%);
 }
+.hud-value-number{
+	font-size: 20px;
+	text-align: center;
+}

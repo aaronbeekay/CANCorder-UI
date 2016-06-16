@@ -10,6 +10,7 @@ var NUM_CELLS = 134;			// number of series cells in pack
 var CELLVOLTAGE_MEAS_ERROR_BOUND = 3; 	// maximum error in cell voltage measurement in either direction, in mV. For example, a value of 5 here indicates that the cell voltage measurement is accurate to +-10 mV.
 var display_soc = false;		// toggle between SOC display and voltage display	
 var last_contact 	= 0;		// timestamp of last successful contact with server
+var busVoltage 		= 0;		// current bus voltage
 
 $( document ).ready(function() {
 	serverHost = '192.168.4.1';
@@ -144,6 +145,14 @@ function updateCellVoltages(){
 	var uri = "http://192.168.4.1/api/system.php?systemName=allBatteries";
 	var jqxhr = $.getJSON(uri, 
 		function(data) { 
+			// Update bus voltage
+			var thisMessage = data["BusVoltage"];
+			if(thisMessage["Age"] < freshnessThreshold){
+				busVoltage = thisMessage["MessageValue"];
+			} else {
+				busVoltage = -1;
+			}
+			
 			for (var i=0;i<134;i++){
 				var signalName = "Cell" + (i+1) + "Voltage";
 				var thisCell = data[signalName];
@@ -172,6 +181,8 @@ function updateCellVoltages(){
  			
  			updateCellVoltageDisplay();
  			updateCellSOCDisplay();
+ 			updateBusVoltageDisplay();
+ 			updateMinMaxCellDisplay();
  			$("#errorOverlay").hide();			// Hide error overlay if it was present
 		})
 		.error( 	
@@ -253,6 +264,22 @@ function updateCellSOCDisplay(){
 	cellSOCChart.series[0].update({colorByPoint: true});
 	cellSOCChart.series[1].update({colorByPoint: true});
 
+}
+
+function updateBusVoltageDisplay(){
+	$('#bus-voltage').text( busVoltage.toFixed(2) + " V" );
+}
+
+function updateMinMaxCellDisplay(){
+	var minCellVoltage, maxCellVoltage, minCellNumber, maxCellNumber;
+	
+	minCellVoltage = Math.min.apply(null, cellVoltages);
+	maxCellVoltage = Math.max.apply(null, cellVoltages);
+	
+	// todo: indicate cell number
+	
+	$('#min-cell-voltage').text( (minCellVoltage/1000).toFixed(3) + " V" );
+	$('#max-cell-voltage').text( (maxCellVoltage/1000).toFixed(3) + " V" );
 }
 
 
