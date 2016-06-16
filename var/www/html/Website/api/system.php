@@ -39,6 +39,8 @@ switch ($requestedMessage){
 		// TODO: should execute this async
 		//exec('./cellRTR.sh');
 		
+		$variables[] = 'BusVoltage';
+		
 		for ($i = 1; $i <= 134; $i++) {
 			$signalName = "Cell" . $i . "Voltage";
 			$variables[] = $signalName;
